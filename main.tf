@@ -28,7 +28,7 @@ resource "aws_s3_bucket_public_access_block" "not-here" {
 }
 
 module "s3_bucket_object" {
-  source      = "./modules/s3_bucket_object"
+  source      = "git::https://github.com/NelsonAkonoafua/terraform_aws_modules.git//modules/s3_bucket_object?ref=main"
   version     = ">= 0.12.0"
   count       = 1
   bucket_name = var.bucket_name
@@ -36,4 +36,4 @@ module "s3_bucket_object" {
   env         = var.env
   file_path   = "${path.module}/files/index.html"
   file_key    = "index.html"
-} 
+}
